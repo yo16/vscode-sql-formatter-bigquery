@@ -23,9 +23,35 @@ const getConfig = ({ insertSpaces, tabSize }) => ({
 
 const format = (text, config) => sqlFormatter.format(text, config);
 
-module.exports.activate = () =>
+const fullDocumentRange = (document) => {
+    const lastLineId = document.lineCount - 1;
+    return new vscode.Range(0, 0, lastLineId, document.lineAt(lastLineId).text.length);
+};
+
+module.exports.activate = function(context) {
+	let disposable = vscode.commands.registerTextEditorCommand('extension.formatSQL', (editor, edit) => {
+		let text = editor.document.getText(editor.selection);
+        editor.edit(builder => {
+			if(text !== ''){
+				builder.replace(editor.selection, format(text, getConfig(editor.options)));
+			} else {
+				const allSelection = fullDocumentRange(editor.document);
+				const allText = editor.document.getText(allSelection);
+				builder.replace(allSelection, format(allText, getConfig(editor.options)));
+			}
+		}).then(success => {
+			if(success && text === ''){
+				const startPos = new vscode.Position(0,0);
+				editor.selection = new vscode.Selection(startPos, startPos);	
+			}
+		});
+		// vscode.window.showInformationMessage('debug print');
+	});
+	context.subscriptions.push(disposable);
+
 	vscode.languages.registerDocumentRangeFormattingEditProvider('sql', {
 		provideDocumentRangeFormattingEdits: (document, range, options) => [
 			vscode.TextEdit.replace(range, format(document.getText(range), getConfig(options)))
 		]
 	});
+}

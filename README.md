@@ -1,6 +1,10 @@
-# Sql Formatter
+# Sql Formatter Mod
 
 Format SQL files using the [sql-formatter-plus](https://github.com/kufii/sql-formatter-plus) npm package.
+
+## Commands
+
+**`Format SQL`**: command added.
 
 ## Configuration
 

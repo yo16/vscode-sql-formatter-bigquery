@@ -1,12 +1,12 @@
 {
-  "name": "vscode-sql-formatter",
-  "displayName": "SQL Formatter",
-  "description": "Format sql files using the sql-formatter npm package",
-  "version": "1.4.4",
-  "publisher": "adpyke",
+  "name": "vscode-sql-formatter-mod",
+  "displayName": "SQL Formatter Mod",
+  "description": "Format sql files using the sql-formatter-plus npm package",
+  "version": "1.4.5",
+  "publisher": "nmrmsys",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kufii/vscode-sql-formatter.git"
+    "url": "https://github.com/nmrmsys/vscode-sql-formatter-mod.git"
   },
   "engines": {
     "vscode": "^1.38.0"
@@ -22,9 +22,16 @@
     "pl/sql"
   ],
   "activationEvents": [
+    "onCommand:extension.formatSQL",
     "onLanguage:sql"
   ],
   "contributes": {
+    "commands": [
+      {
+        "command": "extension.formatSQL",
+        "title": "Format SQL"
+      }
+    ],
     "configuration": {
       "type": "object",
       "title": "SQL Formatter",

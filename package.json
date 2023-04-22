@@ -1,7 +1,7 @@
 {
   "name": "vscode-sql-formatter-jp",
   "displayName": "SQL Formatter 日本語",
-  "description": "SQLを整形する。日本人が日本語で細かく設定できることを目的に作成。",
+  "description": "SQLを整形する。日本人が日本語で細かく設定できることを目的に作成。設定項目、設定値ともに極力日本語で設定できるようにしています。",
   "version": "0.1.0",
   "publisher": "yo16",
   "repository": {
@@ -71,6 +71,17 @@
           "minimum": 1,
           "default": 4,
           "description": "字下げのスペース数。\n字下げにスペースでなくタブを使う場合、この設定値は無効になる。"
+        },
+        "SQL整形.3_整形.3-1_予約語の大文字/小文字": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "変更しない",
+            "大文字",
+            "小文字"
+          ],
+          "default": "変更しない",
+          "description": "使用するDB。DBによって、SQL dialect(方言)が少し違う。"
         }
       }
     }

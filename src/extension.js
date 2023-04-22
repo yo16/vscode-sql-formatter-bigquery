@@ -15,11 +15,29 @@ const getSetting = (group1, group2, settings_key, def) => {
 	return value == null ? def : value;
 };
 
+const configMap = {
+	'3-1': {
+		'変更しない': 'preserve',
+		'大文字'	: 'upper',
+		'小文字'	: 'lower'
+	}
+};
+
 const getConfig = ({ insertSpaces, tabSize }) => ({
 	indent: insertSpaces ? ' '.repeat(tabSize) : '\t',
 	language: getSetting('SQL整形', '1_全体', 'データベース', 'sql'),
 	useTabs: getSetting('SQL整形', '2_字下げ', '2-1_タブを使う', false),
-	tabWidth: getSetting('SQL整形', '2_字下げ', '2-2_スペース幅', 4)
+	tabWidth: getSetting('SQL整形', '2_字下げ', '2-2_スペース幅', 4),
+	keywordCase: configMap['3-1'][getSetting('SQL整形', '3_整形', '3-1_予約語の大文字/小文字', '大文字')],
+//	indentStyle: getSetting('SQL整形',),
+//	logicalOperatorNewline: getSetting('SQL整形',),
+//	tabulatedAlias: getSetting('SQL整形',),
+//	commaPosition: getSetting('SQL整形',),
+//	expressionWidth: getSetting('SQL整形',),
+//	linesBetweenQueries: getSetting('SQL整形',),
+//	denseOperators: getSetting('SQL整形',),
+//	newlineBeforeSemicolon: getSetting('SQL整形',),
+//	ParamsparamTypes: getSetting('SQL整形',),
 });
 
 const format = function(text, config) {

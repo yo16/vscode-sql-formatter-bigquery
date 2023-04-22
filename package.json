@@ -144,6 +144,12 @@
           ],
           "default": "行末",
           "description": "SELECT句、ORDER BY句などで使うカンマの位置を、行末(前)か、行の先頭(\n※この項目は、使用しているパッケージにバグがあり正しく動作しないことがあるため、パッケージ開発の方針で削除予定となっています。削除された場合、行末になります。"
+        },
+        "SQL整形.4_変数展開.4-1_変数の設定": {
+          "scope": "resource",
+          "type": "string",
+          "default": "",
+          "markdownDescription": "クエリ内に変数を含め、ここで設定した値を展開させたい場合に使用する。\n詳細は、[sql-formatterのparamsの設定方法](https://github.com/sql-formatter-org/sql-formatter/blob/master/docs/params.md)を参照のこと"
         }
       }
     }

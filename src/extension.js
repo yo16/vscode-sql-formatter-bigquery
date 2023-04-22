@@ -37,6 +37,19 @@ const configMap = {
 	}
 };
 
+const parseJson = function(s){
+	let ret = '';
+	try {
+		ret = JSON.parse(s);
+	} catch (err) {
+		console.log('error');
+		console.log(err);
+		ret = ''
+	}
+	console.log(ret);
+	return ret;
+}
+
 const getConfig = ({ insertSpaces, tabSize }) => ({
 	indent: insertSpaces ? ' '.repeat(tabSize) : '\t',
 	language: getSetting('SQL整形', '1_全体', 'データベース', 'sql'),
@@ -53,7 +66,7 @@ const getConfig = ({ insertSpaces, tabSize }) => ({
 	linesBetweenQueries: getSetting('SQL整形', '3_整形', '3-7_次のクエリの間の空行', 1),
 	tabulateAlias: getSetting('SQL整形', '3_整形', '3-8_列の表形式', false),						// deprected
 	commaPosition: configMap['3-9'][getSetting('SQL整形', '3_整形', '3-9_カンマの位置', '前')],		// deprected
-//	params: getSetting('SQL整形','4_変数展開'),
+	params: parseJson(getSetting('SQL整形', '4_変数展開', '4-1_変数の設定', ''))
 //	paramTypes: getSetting('SQL整形','4_変数展開'),
 });
 

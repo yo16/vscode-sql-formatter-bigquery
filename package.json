@@ -1,6 +1,6 @@
 {
   "name": "vscode-sql-formatter-jp",
-  "displayName": "SQL Formatter JP",
+  "displayName": "SQL Formatter 日本語",
   "description": "SQLを整形する。日本人が日本語で細かく設定できることを目的に作成。",
   "version": "0.1.0",
   "publisher": "yo16",
@@ -27,14 +27,14 @@
     "commands": [
       {
         "command": "extension.formatSQL",
-        "title": "Format SQL"
+        "title": "SQL整形"
       }
     ],
     "configuration": {
       "type": "object",
       "title": "SQL整形",
       "properties": {
-        "sql-formatter.データベース": {
+        "SQL整形.1_全体.データベース": {
           "scope": "resource",
           "type": "string",
           "enum": [
@@ -56,21 +56,21 @@
             "tsql",
             "trino"
           ],
-          "default": "bigquery",
+          "default": "sql",
           "description": "使用するDB。DBによって、SQL dialect(方言)が少し違う。"
         },
-        "sql-formatter.字下げのスペース幅": {
+        "SQL整形.2_字下げ.2-2_タブを使う": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "字下げにタブを使う(チェックオン) または 使わない(チェックオフ)。\nこの設定を使う(チェックオン)にした場合、字下げのスペース数の設定は無効になる。"
+        },
+        "SQL整形.2_字下げ.2-1_スペース幅": {
           "scope": "resource",
           "type": "number",
           "minimum": 1,
           "default": 4,
-          "description": "字下げのスペース数。スペースでなくタブを使いたい場合は、\"字下げにタブを使う\"をチェックオンにする。その場合、この設定値は無効になる。"
-        },
-        "sql-formatter.字下げにタブを使う": {
-          "scope": "resource",
-          "type": "boolean",
-          "default": false,
-          "description": "字下げにタブを使う(チェックオン)か使わない(チェックオフ)か。この設定を使う(チェックオン)にした場合、字下げのスペース数であるtabWdithは無効になる。"
+          "description": "字下げのスペース数。\n字下げにスペースでなくタブを使う場合、この設定値は無効になる。"
         }
       }
     }

@@ -1,15 +1,15 @@
 {
-  "name": "vscode-sql-formatter-mod",
-  "displayName": "SQL Formatter Mod",
-  "description": "Format sql files using the sql-formatter-plus npm package",
-  "version": "1.4.5",
-  "publisher": "nmrmsys",
+  "name": "vscode-sql-formatter-bigquery",
+  "displayName": "BigQuery SQL Formatter",
+  "description": "Format sql files using the @googleapis/nodejs-bigquery npm package",
+  "version": "0.1.0",
+  "publisher": "yo16",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nmrmsys/vscode-sql-formatter-mod.git"
+    "url": "https://github.com/googleapis/nodejs-bigquery.git"
   },
   "engines": {
-    "vscode": "^1.38.0"
+    "vscode": "^1.77.0"
   },
   "categories": [
     "Formatters"
@@ -17,24 +17,22 @@
   "keywords": [
     "sql",
     "formatter",
-    "n1ql",
-    "db2",
-    "pl/sql"
+    "bigquery"
   ],
   "activationEvents": [
-    "onCommand:extension.formatSQL",
+    "onCommand:extension.formatBQ-SQL",
     "onLanguage:sql"
   ],
   "contributes": {
     "commands": [
       {
-        "command": "extension.formatSQL",
+        "command": "extension.formatBQ-SQL",
         "title": "Format SQL"
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "SQL Formatter",
+      "title": "BQ-SQL Formatter",
       "properties": {
         "sql-formatter.dialect": {
           "scope": "resource",

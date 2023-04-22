@@ -1,10 +1,13 @@
-# Sql Formatter Mod
+# BigQuery SQL Formatter (BQ-SQL Formatter)
 
-Format SQL files using the [sql-formatter-plus](https://github.com/kufii/sql-formatter-plus) npm package.
+Format SQL files using the [googleapis/nodejs-bigquery](https://github.com/googleapis/nodejs-bigquery) npm package.
 
 ## Commands
 
-**`Format SQL`**: command added.
+**`Format BQ-SQL`**: command added.
+
+
+-- change the following soon
 
 ## Configuration
 

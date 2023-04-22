@@ -93,6 +93,12 @@
           "default": "後",
           "description": "ANDやORなどの前に改行を入れるか、後にいれるか。"
         },
+        "SQL整形.3_整形.3-3_演算子前後のスペース": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "description": " + や * などの演算子の前後にスペースを入れる(チェックオン)か、入れない(チェックオフ)。"
+        },
         "SQL整形.3_整形.3-6_表形式": {
           "scope": "resource",
           "type": "string",

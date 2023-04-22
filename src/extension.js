@@ -40,10 +40,12 @@ const getConfig = ({ insertSpaces, tabSize }) => ({
 	tabWidth: getSetting('SQL整形', '2_字下げ', '2-2_スペース幅', 4),
 	keywordCase: configMap['3-1'][getSetting('SQL整形', '3_整形', '3-1_予約語の大文字/小文字', '大文字')],
 	logicalOperatorNewline: configMap['3-2'][getSetting('SQL整形', '3_整形', '3-2_論理演算前後の改行', '後')],
-//	denseOperators: getSetting('SQL整形',),
+	denseOperators: !getSetting('SQL整形', '3_整形', '3-3_演算子前後のスペース', true),
+		// denseOperatorsは、tureで密集=スペースなし、falseでスペースありでわかりづらいので、
+		// スペース有無という設定にして反転させている
 //	expressionWidth: getSetting('SQL整形',),
 //	newlineBeforeSemicolon: getSetting('SQL整形',),
-indentStyle: configMap['3-6'][getSetting('SQL整形', '3_整形', '3-6_表形式', '標準')],
+	indentStyle: configMap['3-6'][getSetting('SQL整形', '3_整形', '3-6_表形式', '標準')],
 //	params: getSetting('SQL整形','4_変数展開'),
 //	paramTypes: getSetting('SQL整形','4_変数展開'),
 //	tabulatedAlias: // deprected
@@ -52,7 +54,7 @@ indentStyle: configMap['3-6'][getSetting('SQL整形', '3_整形', '3-6_表形式
 });
 
 const format = function(text, config) {
-	const query = 'select a,b from hoge where a=10 and b=5 group by a,b;';
+	const query = 'select a,b from hoge where a=10+c and b=5*d group by a,b;';
 	console.log(query);
 	console.log(formatter);
 	const formatted = formatter.format(query, config);

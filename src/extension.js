@@ -44,13 +44,13 @@ const getConfig = ({ insertSpaces, tabSize }) => ({
 		// denseOperatorsは、tureで密集=スペースなし、falseでスペースありでわかりづらいので、
 		// スペース有無という設定にして反転させている
 	expressionWidth: getSetting('SQL整形', '3_整形', '3-4_カッコ内の文字列長', 50),
-//	newlineBeforeSemicolon: getSetting('SQL整形',),
+	newlineBeforeSemicolon: getSetting('SQL整形', '3_整形', '3-5_セミコロンの前に改行', true),
 	indentStyle: configMap['3-6'][getSetting('SQL整形', '3_整形', '3-6_表形式', '標準')],
 //	params: getSetting('SQL整形','4_変数展開'),
 //	paramTypes: getSetting('SQL整形','4_変数展開'),
 //	tabulatedAlias: // deprected
 //	commaPosition: // deprected
-//	linesBetweenQueries: getSetting('SQL整形', '4_ファイル単位,),
+//	linesBetweenQueries: getSetting('SQL整形', '4_次のクエリ', '),
 });
 
 const format = function(text, config) {

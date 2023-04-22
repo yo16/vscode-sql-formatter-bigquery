@@ -30,7 +30,11 @@ const configMap = {
 		'左揃え'	: 'tablarLeft',
 		'右揃え'	: 'tablarRight'
 	},
-
+	'3-8': {
+		'行末'				: 'after',
+		'行末で縦に揃える'	: 'tabular',
+		'行頭'				: 'before'
+	}
 };
 
 const getConfig = ({ insertSpaces, tabSize }) => ({
@@ -46,10 +50,10 @@ const getConfig = ({ insertSpaces, tabSize }) => ({
 	expressionWidth: getSetting('SQL整形', '3_整形', '3-4_カッコ内の文字列長', 50),
 	newlineBeforeSemicolon: getSetting('SQL整形', '3_整形', '3-5_セミコロンの前に改行', true),
 	indentStyle: configMap['3-6'][getSetting('SQL整形', '3_整形', '3-6_表形式', '標準')],
+	tabulateAlias: getSetting('SQL整形', '3_整形', '3-7_列の表形式', false),	// deprected
+	commaPosition: configMap['3-8'][getSetting('SQL整形', '3_整形', '3-8_カンマの位置', '前')],	// deprected
 //	params: getSetting('SQL整形','4_変数展開'),
 //	paramTypes: getSetting('SQL整形','4_変数展開'),
-//	tabulatedAlias: // deprected
-//	commaPosition: // deprected
 //	linesBetweenQueries: getSetting('SQL整形', '4_次のクエリ', '),
 });
 

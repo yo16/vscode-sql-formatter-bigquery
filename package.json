@@ -59,13 +59,13 @@
           "default": "sql",
           "description": "使用するDB。DBによって、SQL dialect(方言)が少し違う。"
         },
-        "SQL整形.2_字下げ.2-2_タブを使う": {
+        "SQL整形.2_字下げ.2-1_タブを使う": {
           "scope": "resource",
           "type": "boolean",
           "default": false,
           "description": "字下げにタブを使う(チェックオン) または 使わない(チェックオフ)。\nこの設定を使う(チェックオン)にした場合、字下げのスペース数の設定は無効になる。"
         },
-        "SQL整形.2_字下げ.2-1_スペース幅": {
+        "SQL整形.2_字下げ.2-2_スペース幅": {
           "scope": "resource",
           "type": "number",
           "minimum": 1,

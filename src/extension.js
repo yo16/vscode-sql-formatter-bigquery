@@ -3,22 +3,23 @@
 const vscode = require('vscode');
 const formatter = require('sql-formatter');
 
-const getSetting = (group, key, def) => {
-	const settings = vscode.workspace.getConfiguration(group, null);
+const getSetting = (group1, group2, settings_key, def) => {
+	const key = `${group2}.${settings_key}`;
+	const settings = vscode.workspace.getConfiguration(group1, null);
 	const editor = vscode.window.activeTextEditor;
 	const language = editor && editor.document && editor.document.languageId;
 	const languageSettings =
 		language && vscode.workspace.getConfiguration(null, null).get(`[${language}]`);
-	let value = languageSettings && languageSettings[`${group}.${key}`];
+	let value = languageSettings && languageSettings[`${group1}.${key}`];
 	if (value == null) value = settings.get(key, def);
 	return value == null ? def : value;
 };
 
 const getConfig = ({ insertSpaces, tabSize }) => ({
 	indent: insertSpaces ? ' '.repeat(tabSize) : '\t',
-	language: getSetting('SQL整形', 'データベース', 'sql'),
-	tabWidth: getSetting('SQL整形', '字下げのスペース幅', 4),
-	useTabs: getSetting('SQL整形', '字下げにタブを使う', false)
+	language: getSetting('SQL整形', '1_全体', 'データベース', 'sql'),
+	useTabs: getSetting('SQL整形', '2_字下げ', '2-1_タブを使う', false),
+	tabWidth: getSetting('SQL整形', '2_字下げ', '2-2_スペース幅', 4)
 });
 
 const format = function(text, config) {

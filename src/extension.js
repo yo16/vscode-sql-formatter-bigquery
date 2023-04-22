@@ -43,7 +43,7 @@ const getConfig = ({ insertSpaces, tabSize }) => ({
 	denseOperators: !getSetting('SQL整形', '3_整形', '3-3_演算子前後のスペース有り', true),
 		// denseOperatorsは、tureで密集=スペースなし、falseでスペースありでわかりづらいので、
 		// スペース有無という設定にして反転させている
-	expressionWidth: getSetting('SQL整形',),
+	expressionWidth: getSetting('SQL整形', '3_整形', '3-4_カッコ内の文字列長', 50),
 //	newlineBeforeSemicolon: getSetting('SQL整形',),
 	indentStyle: configMap['3-6'][getSetting('SQL整形', '3_整形', '3-6_表形式', '標準')],
 //	params: getSetting('SQL整形','4_変数展開'),
@@ -54,12 +54,11 @@ const getConfig = ({ insertSpaces, tabSize }) => ({
 });
 
 const format = function(text, config) {
-	const query = 'select a,b from hoge where a=10+c and b=5*d group by a,b;';
-	console.log(query);
-	console.log(formatter);
+	let query = 'select a,b,  product.price+(product.original_price*product.sales_tax+something_alpha) AS total from hoge where a=10+c and b=5*d group by a,b;';
+	if (text.length > 0) {
+		query = text;
+	}
 	const formatted = formatter.format(query, config);
-	console.log(formatted);
-	console.log('------');
 	const ret = formatted;
 
 	// eturn sqlFormatter.format(text, config);

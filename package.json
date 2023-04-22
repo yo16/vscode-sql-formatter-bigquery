@@ -99,6 +99,12 @@
           "default": true,
           "description": " + や * などの演算子の前後にスペースを入れる(チェックオン)か、入れない(チェックオフ)。"
         },
+        "SQL整形.3_整形.3-4_カッコ内の文字列長": {
+          "scope": "resource",
+          "type": "number",
+          "default": 50,
+          "description": "カッコ内の数式が長くなった場合に、この設定値以上になった場合に折り返す。"
+        },
         "SQL整形.3_整形.3-6_表形式": {
           "scope": "resource",
           "type": "string",

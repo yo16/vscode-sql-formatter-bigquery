@@ -1,7 +1,7 @@
 'use strict';
 
 const vscode = require('vscode');
-const sqlFormatter = require('sql-formatter-plus');
+const formatter = require('sql-formatter');
 
 const getSetting = (group, key, def) => {
 	const settings = vscode.workspace.getConfiguration(group, null);
@@ -16,12 +16,23 @@ const getSetting = (group, key, def) => {
 
 const getConfig = ({ insertSpaces, tabSize }) => ({
 	indent: insertSpaces ? ' '.repeat(tabSize) : '\t',
-	language: getSetting('sql-formatter', 'dialect', 'sql'),
-	uppercase: getSetting('sql-formatter', 'uppercase', false),
-	linesBetweenQueries: getSetting('sql-formatter', 'linesBetweenQueries', 2)
+	language: getSetting('sql-formatter', 'language', 'bigquery'),
+	tabWidth: getSetting('sql-formatter', 'tabWidth', 4),
+	useTabs: getSetting('sql-formatter', 'useTabs', false)
 });
 
-const format = (text, config) => sqlFormatter.format(text, config);
+const format = function(text, config) {
+	const query = 'select a,b from hoge where a=10 and b=5 group by a,b;';
+	console.log(query);
+	console.log(formatter);
+	const formatted = formatter.format(query, config);
+	console.log(formatted);
+	console.log('------');
+	const ret = formatted;
+
+	// eturn sqlFormatter.format(text, config);
+	return ret;
+}
 
 const fullDocumentRange = (document) => {
     const lastLineId = document.lineCount - 1;
@@ -29,8 +40,8 @@ const fullDocumentRange = (document) => {
 };
 
 module.exports.activate = function(context) {
-	let disposable = vscode.commands.registerTextEditorCommand('extension.formatSQL', (editor, edit) => {
-		let text = editor.document.getText(editor.selection);
+	const disposable = vscode.commands.registerTextEditorCommand('extension.formatSQL', (editor, edit) => {
+		const text = editor.document.getText(editor.selection);
         editor.edit(builder => {
 			if(text !== ''){
 				builder.replace(editor.selection, format(text, getConfig(editor.options)));

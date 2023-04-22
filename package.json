@@ -34,7 +34,7 @@
       "type": "object",
       "title": "SQL整形",
       "properties": {
-        "sql-formatter.language": {
+        "sql-formatter.データベース": {
           "scope": "resource",
           "type": "string",
           "enum": [
@@ -59,14 +59,14 @@
           "default": "bigquery",
           "description": "使用するDB。DBによって、SQL dialect(方言)が少し違う。"
         },
-        "sql-formatter.tabWidth": {
+        "sql-formatter.字下げのスペース幅": {
           "scope": "resource",
           "type": "number",
           "minimum": 1,
           "default": 4,
-          "description": "字下げのスペース数。スペースでなくタブを使いたい場合は、`useTabs`をチェックオンにする。その場合、この設定値は無効になる。"
+          "description": "字下げのスペース数。スペースでなくタブを使いたい場合は、\"字下げにタブを使う\"をチェックオンにする。その場合、この設定値は無効になる。"
         },
-        "sql-formatter.useTabs": {
+        "sql-formatter.字下げにタブを使う": {
           "scope": "resource",
           "type": "boolean",
           "default": false,

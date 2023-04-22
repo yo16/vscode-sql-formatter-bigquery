@@ -16,9 +16,9 @@ const getSetting = (group, key, def) => {
 
 const getConfig = ({ insertSpaces, tabSize }) => ({
 	indent: insertSpaces ? ' '.repeat(tabSize) : '\t',
-	language: getSetting('sql-formatter', 'language', 'bigquery'),
-	tabWidth: getSetting('sql-formatter', 'tabWidth', 4),
-	useTabs: getSetting('sql-formatter', 'useTabs', false)
+	language: getSetting('sql-formatter', 'データベース', 'bigquery'),
+	tabWidth: getSetting('sql-formatter', '字下げのスペース幅', 4),
+	useTabs: getSetting('sql-formatter', '字下げにタブを使う', false)
 });
 
 const format = function(text, config) {

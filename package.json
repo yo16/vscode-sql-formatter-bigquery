@@ -80,8 +80,29 @@
             "大文字",
             "小文字"
           ],
-          "default": "変更しない",
-          "description": "使用するDB。DBによって、SQL dialect(方言)が少し違う。"
+          "default": "大文字",
+          "description": "予約語を大文字にするか、小文字にするか。"
+        },
+        "SQL整形.3_整形.3-2_論理演算前後の改行": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "前",
+            "後"
+          ],
+          "default": "後",
+          "description": "ANDやORなどの前に改行を入れるか、後にいれるか。"
+        },
+        "SQL整形.3_整形.3-6_表形式": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "標準",
+            "左揃え",
+            "右揃え"
+          ],
+          "default": "標準",
+          "description": "クエリを表形式で揃える。標準はインデント形式で表形式ではない。"
         }
       }
     }

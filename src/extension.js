@@ -20,7 +20,17 @@ const configMap = {
 		'変更しない': 'preserve',
 		'大文字'	: 'upper',
 		'小文字'	: 'lower'
-	}
+	},
+	'3-2': {
+		'前'		: 'before',
+		'後'		: 'after'
+	},
+	'3-6': {
+		'標準'		: 'standard',
+		'左揃え'	: 'tablarLeft',
+		'右揃え'	: 'tablarRight'
+	},
+
 };
 
 const getConfig = ({ insertSpaces, tabSize }) => ({
@@ -29,15 +39,16 @@ const getConfig = ({ insertSpaces, tabSize }) => ({
 	useTabs: getSetting('SQL整形', '2_字下げ', '2-1_タブを使う', false),
 	tabWidth: getSetting('SQL整形', '2_字下げ', '2-2_スペース幅', 4),
 	keywordCase: configMap['3-1'][getSetting('SQL整形', '3_整形', '3-1_予約語の大文字/小文字', '大文字')],
-//	indentStyle: getSetting('SQL整形',),
-//	logicalOperatorNewline: getSetting('SQL整形',),
-//	tabulatedAlias: getSetting('SQL整形',),
-//	commaPosition: getSetting('SQL整形',),
-//	expressionWidth: getSetting('SQL整形',),
-//	linesBetweenQueries: getSetting('SQL整形',),
+	logicalOperatorNewline: configMap['3-2'][getSetting('SQL整形', '3_整形', '3-2_論理演算前後の改行', '後')],
 //	denseOperators: getSetting('SQL整形',),
+//	expressionWidth: getSetting('SQL整形',),
 //	newlineBeforeSemicolon: getSetting('SQL整形',),
-//	ParamsparamTypes: getSetting('SQL整形',),
+indentStyle: configMap['3-6'][getSetting('SQL整形', '3_整形', '3-6_表形式', '標準')],
+//	params: getSetting('SQL整形','4_変数展開'),
+//	paramTypes: getSetting('SQL整形','4_変数展開'),
+//	tabulatedAlias: // deprected
+//	commaPosition: // deprected
+//	linesBetweenQueries: getSetting('SQL整形', '4_ファイル単位,),
 });
 
 const format = function(text, config) {

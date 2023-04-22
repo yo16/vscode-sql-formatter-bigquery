@@ -132,7 +132,7 @@
           "scope": "resource",
           "type": "boolean",
           "default": false,
-          "description": "列ごとにASで別名をつけるとき、縦に揃える(チェックオン)か、揃えない(チェックオフ)か。\n※この項目は、使用しているパッケージにバグがあり正しく動作しないことがあるため、パッケージ開発の方針で削除予定となっています。削除された場合、揃えません。"
+          "description": "列ごとにASで別名をつけるとき、縦に揃える(チェックオン)か、揃えない(チェックオフ)か。\n※この項目は、正しく動作しないことがあるため、パッケージ開発の方針で削除予定となっています。削除された場合、揃えません。"
         },
         "SQL整形.3_整形.3-9_カンマの位置": {
           "scope": "resource",
@@ -143,13 +143,19 @@
             "行頭"
           ],
           "default": "行末",
-          "description": "SELECT句、ORDER BY句などで使うカンマの位置を、行末(前)か、行の先頭(\n※この項目は、使用しているパッケージにバグがあり正しく動作しないことがあるため、パッケージ開発の方針で削除予定となっています。削除された場合、行末になります。"
+          "description": "SELECT句、ORDER BY句などで使うカンマの位置を、行末か、行末で縦にそろえるか、行の先頭(行頭)。\n※この項目は、正しく動作しないことがあるため、パッケージ開発の方針で削除予定となっています。削除された場合、行末になります。"
         },
         "SQL整形.4_変数展開.4-1_変数の設定": {
           "scope": "resource",
           "type": "string",
           "default": "",
-          "markdownDescription": "クエリ内に変数を含め、ここで設定した値を展開させたい場合に使用する。\n詳細は、[sql-formatterのparamsの設定方法](https://github.com/sql-formatter-org/sql-formatter/blob/master/docs/params.md)を参照のこと"
+          "markdownDescription": "クエリ内に変数を含め、ここで設定した値を展開させたい場合に使用する。\n\n詳細は、[sql-formatterのparamsの設定方法](https://github.com/sql-formatter-org/sql-formatter/blob/master/docs/params.md)を参照のこと。"
+        },
+        "SQL整形.4_変数展開.4-2_プレースホルダー": {
+          "scope": "resource",
+          "type": "string",
+          "default": "",
+          "markdownDescription": "クエリ内に変数を設定する場合、変数のルールをここで設定する。使用するプログラム言語やデータベースによって異なるため、独自の設定が必要。\n\n詳細は、[sql-formatterのparamTypesの設定方法](https://github.com/sql-formatter-org/sql-formatter/blob/master/docs/paramTypes.md)を参照のこと。"
         }
       }
     }
